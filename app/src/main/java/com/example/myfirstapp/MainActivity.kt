@@ -1,5 +1,7 @@
 package com.example.myfirstapp
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -21,6 +23,10 @@ class MainActivity : AppCompatActivity() {
             Bt2.setOnClickListener{
                 var message = Toast.makeText(applicationContext, "Congratulations", Toast.LENGTH_SHORT)
                 message.show()
+
+                var adress = "https://play.google.com/store/apps/details?id=com.FilipCzerwinski.Jushroom"
+                var myapp = Intent(Intent.ACTION_VIEW, Uri.parse(adress))
+                startActivity(myapp)
             }
 
 
