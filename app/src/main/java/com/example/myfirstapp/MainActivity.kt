@@ -16,9 +16,13 @@ class MainActivity : AppCompatActivity() {
         val Bt2 = findViewById<Button>(R.id.Button_2)
 
         Bt1.setOnClickListener{
-            var message = Toast.makeText(applicationContext, "Thank You", Toast.LENGTH_LONG)
+            val message = Toast.makeText(applicationContext, "Thank You", Toast.LENGTH_LONG)
             message.show()
+
+            val new_activity: Intent = Intent(applicationContext, SecondActivity::class.java) //nowa aktywnosc
+            startActivity(new_activity)
         }
+
 
         Bt2.setOnClickListener{
             val message = Toast.makeText(applicationContext, "Congratulations", Toast.LENGTH_SHORT)
