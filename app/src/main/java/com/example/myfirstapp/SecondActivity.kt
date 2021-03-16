@@ -1,12 +1,12 @@
 package com.example.myfirstapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
+import kotlinx.android.synthetic.main.activity_second.*
 import org.w3c.dom.Text
 
 class SecondActivity : AppCompatActivity() {
@@ -14,13 +14,20 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        var password = findViewById(R.id.password) as EditText
-        var email = findViewById(R.id.email) as EditText
-        var warn_password = findViewById(R.id.warn_password) as TextView
-        var warn_email = findViewById(R.id.warn_email) as TextView
+
 
         serviceEditEmail(email, warn_email)              //wyświetlanie i sprawdzanie poprawności email
         serviceEditPassword(password, warn_password)     //wyświetlanie i sprawdzanie poprawności password
+
+        Sex_Group.setOnCheckedChangeListener { group, checkedId ->
+            run {
+                val intencjaAktywująca: Intent = Intent(applicationContext,MainActivity::class.java)
+                var RB: RadioButton = findViewById(checkedId)
+                intencjaAktywująca.putExtra("plec", RB.text)
+                startActivity(intencjaAktywująca)
+            }
+
+        }
 
     }
 }
